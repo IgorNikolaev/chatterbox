@@ -1,8 +1,9 @@
 services:
-    App\Command\SpeakCommand:
-        class: App\Command\SpeakCommand
-        arguments:
-            - '@App\Speech\Provider\WeatherSpeechProvider'
+    _defaults:
+        autowire: true
 
-    App\Speech\Provider\WeatherSpeechProvider:
-        class: App\Speech\Provider\WeatherSpeechProvider
+    App\:
+        resource: '../src/*'
+
+    App\Command\SpeakCommand:
+        public: true
