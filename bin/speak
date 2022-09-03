@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+gtts-cli "$1" --lang ru | play -t mp3 - > /dev/null 2>&1
