@@ -1,5 +1,14 @@
-#!/usr/bin/env bash
+#!/usr/bin/env php
+<?php declare(strict_types=1);
 
-SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+require __DIR__.'/../vendor/autoload.php';
 
-gtts-cli "$1" --lang ru | play -t mp3 - > /dev/null 2>&1
+use App\Command\SpeakCommand;
+use Symfony\Component\Console\Application;
+
+$command = new SpeakCommand();
+
+$app = new Application('Chatterbox');
+$app->add($command);
+$app->setDefaultCommand($command->getName());
+$app->run();
