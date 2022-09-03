@@ -6,9 +6,11 @@ require __DIR__.'/../vendor/autoload.php';
 use App\Command\SpeakCommand;
 use Symfony\Component\Console\Application;
 
+$app = new Application('Chatterbox');
+
 $command = new SpeakCommand();
 
-$app = new Application('Chatterbox');
 $app->add($command);
-$app->setDefaultCommand($command->getName());
+$app->setDefaultCommand($command->getName(), true);
+
 $app->run();
