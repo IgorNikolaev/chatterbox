@@ -1,0 +1,8 @@
+services:
+    App\Command\SpeakCommand:
+        class: App\Command\SpeakCommand
+        arguments:
+            - '@App\Speech\Provider\WeatherSpeechProvider'
+
+    App\Speech\Provider\WeatherSpeechProvider:
+        class: App\Speech\Provider\WeatherSpeechProvider

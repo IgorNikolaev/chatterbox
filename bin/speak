@@ -4,11 +4,19 @@
 require __DIR__.'/../vendor/autoload.php';
 
 use App\Command\SpeakCommand;
+use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Console\Application;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 $app = new Application('Chatterbox');
 
-$command = new SpeakCommand();
+$container = new ContainerBuilder();
+
+(new YamlFileLoader($container, new FileLocator(__DIR__.'/../config')))->load('services.yaml');
+
+/** @var \App\Command\SpeakCommand $command */
+$command = $container->get(SpeakCommand::class);
 
 $app->add($command);
 $app->setDefaultCommand($command->getName(), true);
