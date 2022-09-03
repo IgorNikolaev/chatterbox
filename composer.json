@@ -1,0 +1,17 @@
+{
+    "name": "chatterbox/chatterbox",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Chatterbox\\Chatterbox\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Igor Nikolaev",
+            "email": "igor.sv.n@gmail.com"
+        }
+    ],
+    "require": {}
+}
